@@ -25,8 +25,11 @@ public class Main {
     }
     
     public static void main(String[] args) {
+       
         GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase("C:\\Users\\Emmanuel\\Documents\\Neo4j\\TestNeo");
         ExecutionEngine engine = new ExecutionEngine(db,StringLogger.SYSTEM);
+        ExecutionResult result;
+        
         try ( Transaction tx = db.beginTx()){
             engine.execute("MATCH (n)-[r]-()DELETE n, r");
             Node eNode = db.createNode(NodeType.Person);
@@ -49,6 +52,12 @@ public class Main {
             
             Relationship reNode = eNode.createRelationshipTo(bNode,RelationType.BelogsTo);
             Relationship rgNode = gNode.createRelationshipTo(aNode,RelationType.BelogsTo);
+            
+            result = engine.execute("match (n:Person) return n");
+           
+            System.out.println(result);
+            System.out.println("result");
+            
             tx.success();}
        
     }  
