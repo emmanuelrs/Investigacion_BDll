@@ -38,6 +38,9 @@ public class Main {
             Node jNode = db.createNode(NodeType.Person);
             jNode.setProperty("Name","Jose");
             
+            Node rNode = db.createNode(NodeType.Person);
+            rNode.setProperty("Name","Roberto");
+            
             Node bNode = db.createNode(NodeType.Course);
             bNode.setProperty("Name","Bases de Datos");
             
