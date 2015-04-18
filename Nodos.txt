@@ -1,0 +1,24 @@
+Videojuegos
+-----------
+Nombre
+Año
+Plataformas ----->Consola
+Género
+Casa Creadora
+Review--------->Usuario
+Puntuación
+Video
+
+
+Consola
+------------
+Nombre
+Año
+Empresa
+
+
+Usuarios
+-------------
+UserName
+Pass
+Email
