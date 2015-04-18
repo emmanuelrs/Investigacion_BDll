@@ -15,7 +15,5 @@ public class Main {
         nodo.agregarNodo(4001, "Rosales", 21);
         Neo4jConnection mNodo = new Neo4jConnection();
         mNodo.agregarNodo(4002, "Miuyin", 18);
-        
-     
     }
 }
