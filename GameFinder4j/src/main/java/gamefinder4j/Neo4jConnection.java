@@ -43,7 +43,7 @@ public final class Neo4jConnection {
 		this.setTx(null);
 		this.setEtiqueta(DynamicLabel.label("Persona")); }
 	
-	// MÈtodos:
+	
 	public void conectar() {
 		this.setBase(new GraphDatabaseFactory().newEmbeddedDatabase(this.getDirectorio())); 
 		this.registerShutdownHook(this.getBase()); }
@@ -57,20 +57,15 @@ public final class Neo4jConnection {
 			public void run() { graphDb.shutdown(); } }); }
 	
 	@SuppressWarnings("deprecation")
-	public void aÒadirNodo(String nombre, String apodo, String apellidos,
-			String correo, String contraseÒa, String fecha, String paÌs) {
+	public void agregarNodo(Integer pid, String nombre, Integer edad) {
 		this.conectar();
 		this.setTx(this.getBase().beginTx());
 		
 		try {
 			this.setNodo1(this.getBase().createNode(this.getEtiqueta()));
-			this.getNodo1().setProperty("nombre", nombre);
-			this.getNodo1().setProperty("apodo", apodo);
-			this.getNodo1().setProperty("apellidos", apellidos);
-			this.getNodo1().setProperty("correo", correo);
-			this.getNodo1().setProperty("contrasena", contraseÒa);
-			this.getNodo1().setProperty("fecha", fecha);
-			this.getNodo1().setProperty("pais", paÌs);
+			this.getNodo1().setProperty("PId", pid);
+			this.getNodo1().setProperty("Name", nombre);
+			this.getNodo1().setProperty("Age", edad);
 			this.getTx().success(); }
 		catch (ConstraintViolationException e) { 
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0); }
@@ -78,7 +73,7 @@ public final class Neo4jConnection {
 			this.getTx().finish();
 			this.desconectar(); 
 			} }
-	
+	/*
 	@SuppressWarnings("deprecation")
 	public boolean autentificar(String correo, String contraseÒa) {
 		boolean retorno = false;
@@ -93,7 +88,7 @@ public final class Neo4jConnection {
 		
 		this.desconectar();
 		return retorno; }
-	
+	*/
 	@SuppressWarnings("deprecation")
 	public ArrayList<String> obtenerNodo(String correo) {
 		ArrayList<String> lista = new ArrayList<String>(); 
@@ -113,7 +108,7 @@ public final class Neo4jConnection {
 		
 		this.desconectar();
 		return lista; }
-	
+	/*
 	@SuppressWarnings("deprecation")
 	public void relacionar(String correo1, String correo2) {
 		this.conectar();
@@ -131,8 +126,8 @@ public final class Neo4jConnection {
 		
 		this.desconectar(); 
 		}
-	
-	private enum tipoConexiÛn implements RelationshipType { SIGUE }
+	*/
+	private enum tipoConexion implements RelationshipType { SIGUE }
 
 	private void existeNodo(String correo) { 
 		ResourceIterator<Node> res = this.getBase().findNodesByLabelAndProperty(this.getEtiqueta(), "correo", correo).iterator();
