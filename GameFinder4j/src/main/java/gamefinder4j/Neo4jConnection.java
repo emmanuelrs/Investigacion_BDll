@@ -51,7 +51,7 @@ public final class Neo4jConnection {
             Game, Person,Console;}    
     
    public enum RelationType implements RelationshipType{
-            Knows, BelogsTo;}
+            Works, BelogsTo;}
 	
 	public void desconectar() {
 		this.getBase().shutdown(); }
