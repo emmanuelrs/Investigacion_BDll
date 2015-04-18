@@ -80,7 +80,7 @@ public final class Neo4jConnection {
 			this.getTx().finish();
 			this.desconectar(); 
 			} }
-	/*
+	
 	@SuppressWarnings("deprecation")
 	public boolean autentificar(String correo, String contraseÒa) {
 		boolean retorno = false;
@@ -95,7 +95,7 @@ public final class Neo4jConnection {
 		
 		this.desconectar();
 		return retorno; }
-	*/
+	
 	@SuppressWarnings("deprecation")
 	public ArrayList<String> obtenerNodo(String correo) {
 		ArrayList<String> lista = new ArrayList<String>(); 
