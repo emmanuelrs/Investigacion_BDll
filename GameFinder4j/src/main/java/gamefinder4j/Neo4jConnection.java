@@ -47,6 +47,12 @@ public final class Neo4jConnection {
 	public void conectar() {
 		this.setBase(new GraphDatabaseFactory().newEmbeddedDatabase(this.getDirectorio())); 
 		this.registerShutdownHook(this.getBase()); }
+        
+         public enum NodeType implements Label{
+            Course, Person;}    
+    
+   public enum RelationType implements RelationshipType{
+            Knows, BelogsTo;}
 	
 	public void desconectar() {
 		this.getBase().shutdown(); }
@@ -62,6 +68,7 @@ public final class Neo4jConnection {
 		this.setTx(this.getBase().beginTx());
 		
 		try {
+                        this.setEtiqueta(NodeType.Course);
 			this.setNodo1(this.getBase().createNode(this.getEtiqueta()));
 			this.getNodo1().setProperty("PId", pid);
 			this.getNodo1().setProperty("Name", nombre);
