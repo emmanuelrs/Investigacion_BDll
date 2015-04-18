@@ -5,4 +5,7 @@
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
 \f0\fs24 \cf0 // Create GameFinder4j Nodes\
-CREATE (COD:Game\{Name:"Call of Duty",Year:"2013",Category:"Action",casaCreadora:"Activision",Review:"Advanced Warfare is a military science fiction war thriller first-person shooter video game published by Activision",Stars:"5"\});}
+CREATE (COD:Game\{Name:"Call of Duty",Year:"2013",Category:"Action",CasaCreadora:"Activision",Review:"Advanced Warfare is a military science fiction war thriller first-person shooter video game published by Activision",Stars:\'945\'94\}),\
+CREATE(PS3:Console\{Name:"Play Station 3", Year:"2006",Brand:"Sony\'94\}),\
+CREATE(COD)-[:Works]->(PS3)\
+}
