@@ -115,7 +115,7 @@ public final class Neo4jConnection {
 		
 		this.desconectar();
 		return lista; }
-	/*
+	
 	@SuppressWarnings("deprecation")
 	public void relacionar(String correo1, String correo2) {
 		this.conectar();
@@ -126,14 +126,14 @@ public final class Neo4jConnection {
 		this.existeNodo(correo2);
 		this.setNodo3(this.getNodo1());
 		
-		this.setConexiÛn(this.getNodo2().createRelationshipTo(this.getNodo3(), tipoConexiÛn.SIGUE));
+		this.setConexiÛn(this.getNodo2().createRelationshipTo(this.getNodo3(), tipoConexion.SIGUE));
 		
 		this.getTx().success();
 		this.getTx().finish();
 		
 		this.desconectar(); 
 		}
-	*/
+	
 	private enum tipoConexion implements RelationshipType { SIGUE }
 
 	private void existeNodo(String correo) { 
