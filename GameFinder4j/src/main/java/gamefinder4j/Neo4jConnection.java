@@ -62,7 +62,7 @@ public final class Neo4jConnection {
 			public void run() { graphDb.shutdown(); } }); }
 	
 	@SuppressWarnings("deprecation")
-	public void addConsole(String consoleName, Integer consoleYear, String consoleBrand) {
+	public void addConsole(String consoleName, String consoleYear, String consoleBrand) {
 		this.conectar();
 		this.setTx(this.getBase().beginTx());
 		
@@ -79,8 +79,8 @@ public final class Neo4jConnection {
 			this.getTx().finish();
 			this.desconectar(); 
 			} }
-	public void addGame(String gameName, Integer gameYear, String gameCategory,
-                            String casaCreadora, String gameReview, Integer stars) {
+	public void addGame(String gameName, String gameYear, String gameCategory,
+                            String casaCreadora, String gameReview, String stars) {
 		this.conectar();
 		this.setTx(this.getBase().beginTx());
 		
@@ -90,9 +90,8 @@ public final class Neo4jConnection {
 			this.getNodo1().setProperty("Name ", gameName);
 			this.getNodo1().setProperty("Year ", gameYear);
                         this.getNodo1().setProperty("Category ",gameCategory);
-                        this.getNodo1().setProperty("casaCreadora ",casaCreadora);
+                        this.getNodo1().setProperty("CasaCreadora ",casaCreadora);
                         this.getNodo1().setProperty("Review ",gameReview);
-                        this.getNodo1().setProperty("Category ",gameCategory);
                         this.getNodo1().setProperty("Stars ",stars);
 			this.getTx().success(); }
 		catch (ConstraintViolationException e) { 
@@ -102,13 +101,13 @@ public final class Neo4jConnection {
 			this.desconectar(); 
 			} }
 	@SuppressWarnings("deprecation")
-	public boolean autentificar(String correo, String contraseÒa) {
+	public boolean autentificar(String correo, String contraseña) {
 		boolean retorno = false;
 		this.conectar();
 		this.setTx(this.getBase().beginTx());
 		
 		this.existeNodo(correo);
-		if (this.getNodo1() != null) { retorno = contraseÒa.equals(this.getNodo1().getProperty("contrasena")); }
+		if (this.getNodo1() != null) { retorno = contraseña.equals(this.getNodo1().getProperty("contrasena")); }
 		
 		this.getTx().success();
 		this.getTx().finish();
