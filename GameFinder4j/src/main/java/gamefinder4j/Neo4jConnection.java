@@ -34,14 +34,13 @@ public final class Neo4jConnection {
 
 	// Constructor:
 	public Neo4jConnection() {
-		this.setDirectorio("/Users/emmanuelrosales/Documents/neo4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
+		this.setDirectorio("/Users/emmanuelrosales/Documents/GameFinder4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
 		this.setNodo1(null);
 		this.setNodo2(null);
 		this.setNodo3(null);
 		this.setConexiÛn(null);
 		this.setBase(null);
-		this.setTx(null);
-		this.setEtiqueta(DynamicLabel.label("Persona")); }
+		this.setTx(null);}
 	
 	
 	public void conectar() {
@@ -49,7 +48,7 @@ public final class Neo4jConnection {
 		this.registerShutdownHook(this.getBase()); }
         
          public enum NodeType implements Label{
-            Course, Person;}    
+            Game, Person,Console;}    
     
    public enum RelationType implements RelationshipType{
             Knows, BelogsTo;}
@@ -63,16 +62,16 @@ public final class Neo4jConnection {
 			public void run() { graphDb.shutdown(); } }); }
 	
 	@SuppressWarnings("deprecation")
-	public void agregarNodo(Integer pid, String nombre, Integer edad) {
+	public void addConsole(String consoleName, Integer consoleYear, String consoleBrand) {
 		this.conectar();
 		this.setTx(this.getBase().beginTx());
 		
 		try {
-                        this.setEtiqueta(NodeType.Course);
+                        this.setEtiqueta(NodeType.Console);
 			this.setNodo1(this.getBase().createNode(this.getEtiqueta()));
-			this.getNodo1().setProperty("PId", pid);
-			this.getNodo1().setProperty("Name", nombre);
-			this.getNodo1().setProperty("Age", edad);
+			this.getNodo1().setProperty("Name", consoleName);
+			this.getNodo1().setProperty("Year", consoleYear);
+                        this.getNodo1().setProperty("Brand", consoleBrand);
 			this.getTx().success(); }
 		catch (ConstraintViolationException e) { 
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0); }
@@ -80,7 +79,28 @@ public final class Neo4jConnection {
 			this.getTx().finish();
 			this.desconectar(); 
 			} }
-	
+	public void addGame(String gameName, Integer gameYear, String gameCategory,
+                            String casaCreadora, String gameReview, Integer stars) {
+		this.conectar();
+		this.setTx(this.getBase().beginTx());
+		
+		try {
+                        this.setEtiqueta(NodeType.Game);
+			this.setNodo1(this.getBase().createNode(this.getEtiqueta()));
+			this.getNodo1().setProperty("Name ", gameName);
+			this.getNodo1().setProperty("Year ", gameYear);
+                        this.getNodo1().setProperty("Category ",gameCategory);
+                        this.getNodo1().setProperty("casaCreadora ",casaCreadora);
+                        this.getNodo1().setProperty("Review ",gameReview);
+                        this.getNodo1().setProperty("Category ",gameCategory);
+                        this.getNodo1().setProperty("Stars ",stars);
+			this.getTx().success(); }
+		catch (ConstraintViolationException e) { 
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0); }
+		finally {
+			this.getTx().finish();
+			this.desconectar(); 
+			} }
 	@SuppressWarnings("deprecation")
 	public boolean autentificar(String correo, String contraseÒa) {
 		boolean retorno = false;
