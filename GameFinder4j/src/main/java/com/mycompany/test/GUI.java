@@ -30,6 +30,7 @@ public class GUI extends javax.swing.JFrame {
         _detalles.setVisible(false);
         this.add(_detalles);
         initComponents();
+        setLocationRelativeTo(null);
         this._WIDTH = this.getWidth();
         this._HEIGHT = this.getHeight();
     }
@@ -309,7 +310,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(21, 21, 21))
                     .addGroup(infoLayerLayout.createSequentialGroup()
-                        .addComponent(btnLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, Short.MAX_VALUE)
+                        .addComponent(btnLeft1, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -434,6 +435,7 @@ public class GUI extends javax.swing.JFrame {
         _agregar.setVisible(true);
         _agregar.mostrar(0);
         this.setSize(_agregar.getWidth() +10, _agregar.getHeight() + 70);
+        _agregar.frame.setLocationRelativeTo(null);
     }//GEN-LAST:event_menuJuegoActionPerformed
 
     private void menuConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsoleActionPerformed
@@ -442,6 +444,7 @@ public class GUI extends javax.swing.JFrame {
         _agregar.setVisible(true);
         _agregar.mostrar(1);
         this.setSize(_agregar.getWidth() +10, _agregar.getHeight() + 70);
+        _agregar.frame.setLocationRelativeTo(null);
     }//GEN-LAST:event_menuConsoleActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
