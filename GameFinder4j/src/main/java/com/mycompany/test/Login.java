@@ -1,6 +1,8 @@
 package com.mycompany.test;
 
-import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.*;
 
 
 public class Login extends javax.swing.JFrame {
@@ -8,7 +10,9 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);    
+        Image im = Toolkit.getDefaultToolkit().getImage("com.mycompany.test\\Loguito.png");
+        this.setIconImage(im);
     }
 
     @SuppressWarnings("unchecked")
