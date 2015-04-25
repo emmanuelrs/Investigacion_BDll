@@ -12,11 +12,8 @@ import javax.mail.internet.MimeMessage;
 
 public class MailSender {
 
-    public static void main(String[] args) {
-        // Recipient's email ID needs to be mentioned.
-        String to = "ldflores92@gmail.com";//change accordingly
-
-        // Sender's email ID needs to be mentioned
+    public void enviaCorreo(String Nombre,String Destinatario){
+        
         String from = "gfinder4j@gmail.com";//change accordingly
         final String username = "gfinder4j@gmail.com";//change accordingly
         final String password = "CursoBases2";//change accordingly
@@ -30,7 +27,6 @@ public class MailSender {
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", "587");
 
-        // Get the Session object.
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -47,22 +43,26 @@ public class MailSender {
 
             // Set To: header field of the header.
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(to));
+                    InternetAddress.parse(Destinatario));
 
             // Set Subject: header field
-            message.setSubject("Testing Subject");
+            message.setSubject("Cuenta de Game Finder!");
 
             // Now set the actual message
-            message.setText("Hello, this is sample for to check send "
-                    + "email using JavaMailAPI ");
+            message.setText("Bienvenido a GameFinder4j muchas gracias por ser parte de nuestro"
+                    + " equipo de gamers, su nombre de usuario es "+ Nombre);
 
             // Send message
             Transport.send(message);
 
-            System.out.println("Sent message successfully....");
+            System.out.println("Envio exitoso");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void main(String[] args) {
+        MailSender ms = new MailSender();
+        ms.enviaCorreo("Blkfx", "ldflores92@gmail.com");
     }
 }

@@ -10,6 +10,7 @@ package CapaGrafica;
  * @author emmanuel
  */
 
+import CapaLogica.MailSender;
 import CapaLogica.Neo4jConnection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -24,6 +25,7 @@ public class Register extends javax.swing.JFrame {
     public Register(Login pLog) {
         _log = pLog;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -38,14 +40,14 @@ public class Register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tfNombre = new javax.swing.JTextField();
+        tfApellido = new javax.swing.JTextField();
+        tfCorreo = new javax.swing.JTextField();
+        tfNombreUsuario = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(java.awt.SystemColor.activeCaption);
 
@@ -63,53 +65,53 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Nombre");
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfNombre.setText("Nombre");
+        tfNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                tfNombreMouseClicked(evt);
             }
         });
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNombreActionPerformed(evt);
             }
         });
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Apellido");
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfApellido.setText("Apellido");
+        tfApellido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2MouseClicked(evt);
+                tfApellidoMouseClicked(evt);
             }
         });
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfApellidoActionPerformed(evt);
             }
         });
 
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("Correo Electrónico");
-        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfCorreo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfCorreo.setText("Correo Electrónico");
+        tfCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField3MouseClicked(evt);
+                tfCorreoMouseClicked(evt);
             }
         });
 
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("Nombre de Usuario");
-        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfNombreUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfNombreUsuario.setText("Nombre de Usuario");
+        tfNombreUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField4MouseClicked(evt);
+                tfNombreUsuarioMouseClicked(evt);
             }
         });
 
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfPassword.setText("jPasswordField1");
+        tfPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPasswordField1MouseClicked(evt);
+                tfPasswordMouseClicked(evt);
             }
         });
 
@@ -130,11 +132,11 @@ public class Register extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfPassword)
+                            .addComponent(tfNombreUsuario)
+                            .addComponent(tfCorreo)
+                            .addComponent(tfApellido)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
@@ -147,15 +149,15 @@ public class Register extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,49 +194,52 @@ public class Register extends javax.swing.JFrame {
         this._log.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+    private void tfNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNombreMouseClicked
         // TODO add your handling code here:
-        jTextField1.setText("");
-    }//GEN-LAST:event_jTextField1MouseClicked
+        tfNombre.setText("");
+    }//GEN-LAST:event_tfNombreMouseClicked
 
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+    private void tfApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfApellidoMouseClicked
         // TODO add your handling code here:
-        jTextField2.setText("");
-    }//GEN-LAST:event_jTextField2MouseClicked
+        tfApellido.setText("");
+    }//GEN-LAST:event_tfApellidoMouseClicked
 
-    private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
+    private void tfCorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfCorreoMouseClicked
         // TODO add your handling code here:
-        jTextField3.setText("");
-    }//GEN-LAST:event_jTextField3MouseClicked
+        tfCorreo.setText("");
+    }//GEN-LAST:event_tfCorreoMouseClicked
 
-    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+    private void tfNombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNombreUsuarioMouseClicked
         // TODO add your handling code here:
-        jTextField4.setText("");
-    }//GEN-LAST:event_jTextField4MouseClicked
+        tfNombreUsuario.setText("");
+    }//GEN-LAST:event_tfNombreUsuarioMouseClicked
 
-    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+    private void tfPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPasswordMouseClicked
         // TODO add your handling code here:
-        jPasswordField1.setText("");
-    }//GEN-LAST:event_jPasswordField1MouseClicked
+        tfPassword.setText("");
+    }//GEN-LAST:event_tfPasswordMouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNombreActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfApellidoActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     public void registrar(){
-        if(!this._log._main.getnNodo().Login(jTextField4.getText().toString(),jPasswordField1.getText().toString())){
-            this._log._main.getnNodo().addGamer(jTextField1.getText().toString(), jTextField2.getText().toString(),
-                jTextField3.getText().toString(), jTextField4.getText().toString(),jPasswordField1.getText().toString());
+        if(!this._log._main.getnNodo().Login(tfNombreUsuario.getText().toString(),tfPassword.getText().toString())){
+            this._log._main.getnNodo().addGamer(tfNombre.getText().toString(), tfApellido.getText().toString(),
+                tfCorreo.getText().toString(), tfNombreUsuario.getText().toString(),tfPassword.getText().toString());
             System.out.println("Agregado");
+            MailSender ms = new MailSender();
+            ms.enviaCorreo(tfNombreUsuario.getText(),tfCorreo.getText());
             JOptionPane.showMessageDialog(null, "Registro Agregado");
+            
         }else{
             System.out.println("Ya se encuentra este usuario");
         }
@@ -248,50 +253,50 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField tfApellido;
+    private javax.swing.JTextField tfCorreo;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfNombreUsuario;
+    private javax.swing.JPasswordField tfPassword;
     // End of variables declaration//GEN-END:variables
 
     public JPasswordField getjPasswordField1() {
-        return jPasswordField1;
+        return tfPassword;
     }
 
     public JTextField getjTextField1() {
-        return jTextField1;
+        return tfNombre;
     }
 
     public JTextField getjTextField2() {
-        return jTextField2;
+        return tfApellido;
     }
 
     public JTextField getjTextField3() {
-        return jTextField3;
+        return tfCorreo;
     }
 
     public JTextField getjTextField4() {
-        return jTextField4;
+        return tfNombreUsuario;
     }
 
     public void setjPasswordField1(JPasswordField jPasswordField1) {
-        this.jPasswordField1 = jPasswordField1;
+        this.tfPassword = jPasswordField1;
     }
 
     public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+        this.tfNombre = jTextField1;
     }
 
     public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
+        this.tfApellido = jTextField2;
     }
 
     public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
+        this.tfCorreo = jTextField3;
     }
 
     public void setjTextField4(JTextField jTextField4) {
-        this.jTextField4 = jTextField4;
+        this.tfNombreUsuario = jTextField4;
     }
 }

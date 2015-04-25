@@ -35,7 +35,7 @@ public final class Neo4jConnection {
         private boolean loggin;
 	// Constructor:
 	public Neo4jConnection() {
-		this.setDirectorio("C:\\Users\\Kenneth\\Desktop\\GameFinder4j\\var\\graph.dbA"); //Cambiar la dirección por la de cada uno.
+		this.setDirectorio("C:\\Users\\Luis Flores\\Desktop\\GameFinder4j\\var\\graph.dbA"); //Cambiar la dirección por la de cada uno.
 		this.setNodo1(null);
 		this.setNodo2(null);
 		this.setNodo3(null);
