@@ -227,7 +227,7 @@ public class Register extends javax.swing.JFrame {
         Neo4jConnection usuario = new Neo4jConnection();
         System.out.println("hola");
        usuario.conectar();
-       //usuario.addGamer(jTextField1.getText(), jTextField2.getText(),jTextField3.getText(), jTextField4.getText(),password);
+       usuario.addGamer(jTextField1.getText(), jTextField2.getText(),jTextField3.getText(), jTextField4.getText(),password);
        usuario.desconectar();
        JOptionPane.showMessageDialog(null, "Usuario Agregado");
        dispose();

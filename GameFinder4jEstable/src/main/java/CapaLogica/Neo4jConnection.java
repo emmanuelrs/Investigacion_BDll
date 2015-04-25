@@ -32,6 +32,7 @@ public final class Neo4jConnection {
 	private Transaction tx;
 	private Label etiquetaC;
         private Label etiquetaG;
+        private boolean loggin;
 	// Constructor:
 	public Neo4jConnection() {
 		this.setDirectorio("/home/emmanuel/Desktop/neo4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
@@ -150,6 +151,65 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             }
             return filas;
        } 
+        public void addGamer(String gamerName, String gamerLastname, String email,
+               String userName, String password) {
+            this.setTx(this.getBase().beginTx());
+            try {
+                this.setEtiqueta(NodeType.Person);
+                this.setNodo1(this.getBase().createNode(NodeType.Person));
+                this.getNodo1().setProperty("Name", gamerName);
+                this.getNodo1().setProperty("Last Name", gamerLastname);
+                this.getNodo1().setProperty("Email", email);
+                this.getNodo1().setProperty("userName", userName);
+                this.getNodo1().setProperty("Password", password);
+                this.getTx().success();
+            } catch (ConstraintViolationException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
+            } finally {
+                this.getTx().finish();
+        }
+    }
+        
+        public boolean Login(String userName, String password){
+            this.setTx(this.getBase().beginTx());
+            this.existeUser(userName);
+            this.existePass(password);
+            if(getloggin()){
+                System.out.println("Inicio");
+                this.getTx().success();
+                return true;
+            } else{
+                System.out.println("NO Inicio");
+                this.getTx().success();
+                return false;
+            }
+        }
+     public void existeUser(String name) { 
+            try (Transaction tx = this.getBase().beginTx()){
+		ResourceIterator<Node> res = this.getBase().findNodesByLabelAndProperty(this.getEtiqueta(), "userName", name).iterator();
+		if (res.hasNext()) {
+                        this.setloggin(true);
+                        System.out.println(getloggin());}
+		else {
+                        this.setloggin(false);
+                }
+                tx.success();
+                tx.finish();
+            }
+        }
+	public void existePass(String pass) { 
+            try (Transaction tx = this.getBase().beginTx()){
+		ResourceIterator<Node> res = this.getBase().findNodesByLabelAndProperty(this.getEtiqueta(), "Password", pass).iterator();
+		if (res.hasNext()) {
+                        this.setloggin(true);}
+		else {
+                        this.setloggin(false);
+                }
+                tx.success();
+                tx.finish();
+            }
+        }
+	
 
        public ArrayList<String> obtenerInfo(String name){
            return getData("match (n:Game) where n.Name = \""+ name +"\" "
@@ -304,6 +364,13 @@ public void addGame(String gameName, String gameYear, String gameCategory,
 
 	public void setEtiqueta(Label etiqueta) {
 		this.etiquetaC = etiqueta; }
+        public void setloggin(boolean loggin){
+            this.loggin = loggin;
+        }
+        public boolean getloggin(){
+            return loggin;
+            
+        }
 }
 
 
