@@ -156,13 +156,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //String password = String.valueOf(jPasswordField1.getPassword());
-        //Neo4jConnection login = new Neo4jConnection();
-        //login.conectar();
-        //login.Login(jTextField1.getText(), password);
+       
+  
+        char[] pass = this.jPasswordField1.getPassword();
+        String password = "";
+        for (int i = 0; i < pass.length; i++) {
+            password += pass[i];
+        }
         _main.abra();
         dispose();
+     
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
