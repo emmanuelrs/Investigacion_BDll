@@ -67,6 +67,10 @@
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="jButton3" min="-2" pref="156" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="123" max="32767" attributes="0"/>
               </Group>
@@ -75,7 +79,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                   <Component id="jTextField1" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Component id="jPasswordField1" min="-2" pref="46" max="-2" attributes="0"/>
@@ -136,6 +142,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel2 = new JLabel(imagen);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
