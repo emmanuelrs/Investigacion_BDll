@@ -218,9 +218,7 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     
     public void registrar(){
        String password = String.valueOf(jPasswordField1.getPassword());
