@@ -7,6 +7,7 @@ package CapaGrafica;
 
 import CapaLogica.Neo4jConnection;
 import CapaLogica.Main;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -163,8 +164,18 @@ public class Login extends javax.swing.JFrame {
         for (int i = 0; i < pass.length; i++) {
             password += pass[i];
         }
-        _main.abra();
-        dispose();
+        Neo4jConnection neo = new Neo4jConnection();
+        neo.conectar();
+        if(neo.Login(jTextField1.getText())){
+            neo.desconectar();
+            _main.abra();
+            dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario No Registrado");
+            JOptionPane.showMessageDialog(null, "Cree un Usuario por favor");
+        }
+        neo.desconectar();
      
        
     }//GEN-LAST:event_jButton2ActionPerformed

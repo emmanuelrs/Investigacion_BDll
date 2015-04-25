@@ -170,10 +170,10 @@ public void addGame(String gameName, String gameYear, String gameCategory,
         }
     }
         
-        public boolean Login(String userName, String password){
+        public boolean Login(String userName){
             this.setTx(this.getBase().beginTx());
             this.existeUser(userName);
-            this.existePass(password);
+            //this.existePass(password);
             if(getloggin()){
                 System.out.println("Inicio");
                 this.getTx().success();
