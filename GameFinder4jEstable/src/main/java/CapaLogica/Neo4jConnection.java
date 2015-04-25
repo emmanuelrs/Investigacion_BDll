@@ -34,6 +34,7 @@ public final class Neo4jConnection {
         private Label etiquetaG;
         private boolean loggin;
         private boolean paslog;
+        private boolean verificaU;
 	// Constructor:
 	public Neo4jConnection() {
 		this.setDirectorio("/home/emmanuel/Desktop/neo4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
@@ -171,47 +172,6 @@ public void addGame(String gameName, String gameYear, String gameCategory,
         }
     }
         
-        public boolean Login(String userName){
-            this.setTx(this.getBase().beginTx());
-            this.existeUser(userName);
-            //this.existePass(password);
-            System.out.println(getloggin());
-            if(getloggin()){
-                System.out.println("Inicio");
-                this.getTx().success();
-                return true;
-            } else{
-                System.out.println("NO Inicio");
-                this.getTx().success();
-                return false;
-            }
-        }
-     public void existeUser(String name) { 
-            try (Transaction tx = this.getBase().beginTx()){
-		ResourceIterator<Node> res = this.getBase().findNodesByLabelAndProperty(this.getEtiqueta(), "userName", name).iterator();
-		if (res.hasNext()) {
-                        this.setloggin(true);
-                        System.out.println(getloggin());}
-		else {
-                        this.setloggin(false);
-                        System.out.println(getloggin());
-                }
-                tx.success();
-                tx.finish();
-            }
-        }
-	public void existePass(String pass) { 
-            try (Transaction tx = this.getBase().beginTx()){
-		ResourceIterator<Node> res = this.getBase().findNodesByLabelAndProperty(this.getEtiqueta(), "Password", pass).iterator();
-		if (res.hasNext()) {
-                        this.setloggin(true);}
-		else {
-                        this.setloggin(false);
-                }
-                tx.success();
-                tx.finish();
-            }
-        }
 	
         public boolean buscarUsuario(String userName, String password){
            ArrayList n = getData("match (n:Person) where n.userName = \""+ userName +"\" "
@@ -231,7 +191,18 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             return false;
            }
        } 
-        
+       public boolean verificaUsuario(String userName){
+           ArrayList n = getData("match (n:Person) where n.userName = \""+ userName +"\" "
+                        + "return n.userName;");
+           if(!n.isEmpty()){
+               verificaU = true; 
+            }else{
+             verificaU = false;
+               }
+            return verificaU;
+            }
+         
+
        public boolean buscarPassword(String password){
            ArrayList a = getData("match (n:Person) where n.Password = \""+ password +"\" "
                         + "return n.userName;");

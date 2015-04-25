@@ -226,11 +226,17 @@ public class Register extends javax.swing.JFrame {
        String password = String.valueOf(jPasswordField1.getPassword());
        Neo4jConnection usuario = new Neo4jConnection();
        usuario.conectar();
-       usuario.addGamer(jTextField1.getText(), jTextField2.getText(),jTextField3.getText(), jTextField4.getText(),password);
-       usuario.desconectar();
-       JOptionPane.showMessageDialog(null, "Usuario Agregado");
-       dispose();
-        
+       if(!usuario.verificaUsuario(jTextField4.getText())){
+           usuario.addGamer(jTextField1.getText(), jTextField2.getText(),jTextField3.getText(), jTextField4.getText(),password);
+           usuario.desconectar();
+           JOptionPane.showMessageDialog(null, "Usuario Agregado");
+           dispose();
+       }
+       else{
+           JOptionPane.showMessageDialog(null, "El usuario ya existe!");
+           usuario.desconectar();
+           
+       } 
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
