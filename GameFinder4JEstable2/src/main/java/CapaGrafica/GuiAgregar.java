@@ -17,7 +17,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class GuiAgregar extends javax.swing.JPanel {
 
     GUI frame;
-    String defaultPathImage = "D:\\gamefinderlogo.png";
+    String defaultPathImage = System.getProperty("user.dir")+"\\Recursos\\gamefinderlogo.png";
     /**
      * Creates new form GuiAgregar
      * @param mainFrame
