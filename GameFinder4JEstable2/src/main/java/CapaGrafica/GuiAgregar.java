@@ -26,6 +26,7 @@ public class GuiAgregar extends javax.swing.JPanel {
         this.frame = mainFrame;
         initComponents();
         jTextField1.setText(defaultPathImage);
+        jTextField2.setText(defaultPathImage);
         this.layerAddGame.setVisible(false);
         this.layerAddConsole.setVisible(true);
     }
@@ -74,6 +75,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         btnAddConsole1 = new javax.swing.JButton();
         lblNombreConsole1 = new javax.swing.JLabel();
         txtEmpConsole1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
 
         layerAddGame.setBackground(new java.awt.Color(51, 51, 51));
         layerAddGame.setOpaque(true);
@@ -171,7 +174,7 @@ public class GuiAgregar extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setEditable(false);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -357,6 +360,18 @@ public class GuiAgregar extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Imagen");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setEditable(false);
+
         javax.swing.GroupLayout layerAddConsoleLayout = new javax.swing.GroupLayout(layerAddConsole);
         layerAddConsole.setLayout(layerAddConsoleLayout);
         layerAddConsoleLayout.setHorizontalGroup(
@@ -378,9 +393,15 @@ public class GuiAgregar extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layerAddConsoleLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInicioConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layerAddConsoleLayout.createSequentialGroup()
+                                .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInicioConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layerAddConsoleLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2)))))
                 .addContainerGap())
             .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerAddConsoleLayout.createSequentialGroup()
@@ -401,6 +422,10 @@ public class GuiAgregar extends javax.swing.JPanel {
                 .addComponent(lblEmpresaConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmpConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,6 +445,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         layerAddConsole.setLayer(btnAddConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddConsole.setLayer(lblNombreConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddConsole.setLayer(txtEmpConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddConsole.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddConsole.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -494,8 +521,9 @@ public class GuiAgregar extends javax.swing.JPanel {
         String nombre = this.txtNombreConsole1.getText();
         String anio = this.txtAnioConsole.getText();
         String casa = this.txtEmpConsole1.getText();
+        String imagePath = this.jTextField2.getText();
         if(!"".equals(nombre) & !"".equals(anio) & !"".equals(casa)){
-            frame.getMain().getnNodo().addConsole(nombre, anio, casa);
+            frame.getMain().getnNodo().addConsole(nombre, anio, casa, imagePath);
             JOptionPane.showMessageDialog(null, "Consola Registrada");
         }else{
             JOptionPane.showMessageDialog(null, "Campos Vacíos");
@@ -558,6 +586,22 @@ public class GuiAgregar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        chooser.setFileFilter(filter);
+        int option = chooser.showOpenDialog(this);
+        if (option == JFileChooser.APPROVE_OPTION) {
+          jTextField2.setText(((chooser.getSelectedFile()!=null)?
+                            chooser.getSelectedFile().getAbsolutePath():defaultPathImage));
+        }
+        else {
+          jTextField2.setText(defaultPathImage);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddConsole1;
@@ -565,8 +609,10 @@ public class GuiAgregar extends javax.swing.JPanel {
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnInicioConsole;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLayeredPane layerAddConsole;
     private javax.swing.JLayeredPane layerAddGame;
     private javax.swing.JLabel lblAnio;

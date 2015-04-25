@@ -6,8 +6,11 @@
 package CapaGrafica;
 
 import CapaGrafica.GUI;
-import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -18,13 +21,16 @@ public class GuiDetalles extends javax.swing.JPanel {
 
     GUI frame;
     ImageIcon imagen;
+    //String imagePath = "D:\\gamefinderlogo.png";
+    String imagePath = System.getProperty("user.dir")+"\\Recursos\\gamefinderlogo.png";
+    String defaultImagePath = imagePath;
     /**
      * Creates new form GuiDetalles
      * @param framePrincipal
      */
     public GuiDetalles(GUI framePrincipal) {
         frame = framePrincipal;
-        imagen = new ImageIcon("D:\\gamefinderlogo.png");
+        imagen = new ImageIcon(imagePath);
        // JLabel etiqueta = new JLabel(imagen);
        
         initComponents();
@@ -51,7 +57,6 @@ public class GuiDetalles extends javax.swing.JPanel {
         lblCat = new javax.swing.JLabel();
         lblRate = new javax.swing.JLabel();
         progRate = new javax.swing.JProgressBar();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         jLayeredPane1.setBackground(new java.awt.Color(51, 51, 51));
@@ -89,17 +94,6 @@ public class GuiDetalles extends javax.swing.JPanel {
         progRate.setString("");
         progRate.setStringPainted(true);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 77, Short.MAX_VALUE)
-        );
-
         jLabel1.setText("jLabel1");
         jLabel1 = new JLabel(imagen);
 
@@ -108,49 +102,45 @@ public class GuiDetalles extends javax.swing.JPanel {
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(lblCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(lblCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(lblRate, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 20, Short.MAX_VALUE)))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(166, 166, 166))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                .addGap(28, 28, 28)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCat, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -158,7 +148,6 @@ public class GuiDetalles extends javax.swing.JPanel {
         jLayeredPane1.setLayer(lblCat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblRate, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(progRate, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,7 +164,7 @@ public class GuiDetalles extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,7 +178,6 @@ public class GuiDetalles extends javax.swing.JPanel {
     private javax.swing.JButton btnInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCat;
     private javax.swing.JLabel lblNombre;
@@ -197,12 +185,34 @@ public class GuiDetalles extends javax.swing.JPanel {
     private javax.swing.JProgressBar progRate;
     private javax.swing.JTextArea txtDescrip;
     // End of variables declaration//GEN-END:variables
-
+    
     public void mostrarInfo(ArrayList<String> info, String Name) {
         this.lblNombre.setText(Name);
         this.lblCat.setText(info.get(1));
+        this.imagePath = info.get(3);
+        File fichero = new File(imagePath);
+     
+
+     if (fichero.exists())
+       {
+           System.out.println("El fichero " + imagePath + " existe");
+           imagen = new ImageIcon(imagePath);
+           Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+           jLabel1.setIcon(icono);
+           jLabel1.repaint();
+           this.repaint();
+    }
+     else{
+         System.out.println("el fichero no existe");
+     }
+       
+
+        
+        
+        
+        
         this.txtDescrip.setText("Año: " + info.get(0) + "\n" +
-                                "Casa Creadora: " + info.get(2)+ "\n" + info.get(3));
+                                "Casa Creadora: " + info.get(2)+ "\n" + info.get(4));
         
         switch(info.get(4)){
             case "0":
@@ -234,8 +244,29 @@ public class GuiDetalles extends javax.swing.JPanel {
     
      public void mostrarInfoConsolas(ArrayList<String> info, String Name) {
         this.lblNombre.setText(Name);
-        this.lblCat.setText("Año: " + info.get(1));
-        this.txtDescrip.setText("Empresa: " + info.get(0));
+        this.imagePath = info.get(0);
+        
+        File fichero = new File(imagePath);
+     
+
+     if (fichero.exists())
+       {
+        
+        //System.out.println("El fichero " + imagePath + " existe");
+        imagen = new ImageIcon(imagePath);
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        jLabel1.setIcon(icono);
+        jLabel1.repaint();
+        this.repaint();
+        
+      }
+     else{
+     
+   //      System.out.println("el fichero no existe");
+     }
+        
+        this.lblCat.setText("Año: " + info.get(2));
+        this.txtDescrip.setText("Empresa: " + info.get(1));
         
     }
 }

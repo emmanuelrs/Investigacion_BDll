@@ -63,7 +63,7 @@ public final class Neo4jConnection {
 			public void run() { graphDb.shutdown(); } }); }
 	
     @SuppressWarnings("deprecation")
-    public void addConsole(String consoleName, String consoleYear, String consoleBrand) {
+    public void addConsole(String consoleName, String consoleYear, String consoleBrand, String pImagePath) {
         this.setTx(this.getBase().beginTx());
         try {
             this.setEtiqueta(NodeType.Console);
@@ -74,6 +74,7 @@ public final class Neo4jConnection {
                     this.getNodo1().setProperty("Name", consoleName);
                     this.getNodo1().setProperty("Year", consoleYear);
                     this.getNodo1().setProperty("Brand", consoleBrand);
+                    this.getNodo1().setProperty("ImgPath", pImagePath);
                     this.getTx().success();
                     JOptionPane.showMessageDialog(null, "Consola Agregado");
                 }else{
@@ -84,6 +85,7 @@ public final class Neo4jConnection {
                 this.getNodo1().setProperty("Name", consoleName);
                 this.getNodo1().setProperty("Year", consoleYear);
                 this.getNodo1().setProperty("Brand", consoleBrand);
+                this.getNodo1().setProperty("ImgPath", pImagePath);
                 this.getTx().success();
                 JOptionPane.showMessageDialog(null, "Consola Agregado");
             }
@@ -125,6 +127,7 @@ public void addGame(String gameName, String gameYear, String gameCategory,
                 this.getNodo1().setProperty("CasaCreadora", casaCreadora);
                 this.getNodo1().setProperty("Review", gameReview);
                 this.getNodo1().setProperty("Stars", stars);
+                this.getNodo1().setProperty("ImgPath",pImagePath);
                 this.getTx().success();
                 JOptionPane.showMessageDialog(null, "Juego Agregado");
             }
@@ -217,12 +220,12 @@ public void addGame(String gameName, String gameYear, String gameCategory,
        }
        public ArrayList<String> obtenerInfo(String name){
            return getData("match (n:Game) where n.Name = \""+ name +"\" "
-                        + "         return n.Year,n.Category,n.CasaCreadora,n.Review,n.Stars");
+                        + "         return n.Year,n.Category,n.CasaCreadora,n.Review,n.Stars,n.ImgPath");
        }
         
        public ArrayList<String> obtenerInfoConsola(String name){
            return getData("match (n:Console) where n.Name = \""+ name +"\" "
-                        + "         return n.Year,n.Brand");
+                        + "         return n.Year,n.Brand,n.ImgPath");
        }
        
        public ArrayList<String> buscarXCategoria(String category){
