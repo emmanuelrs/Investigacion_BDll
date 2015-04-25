@@ -164,10 +164,11 @@ public class Login extends javax.swing.JFrame {
         for (int i = 0; i < pass.length; i++) {
             password += pass[i];
         }
-        Neo4jConnection neo = new Neo4jConnection();
-        neo.conectar();
-        if(neo.Login(jTextField1.getText())){
-            neo.desconectar();
+        //Neo4jConnection neo = new Neo4jConnection();
+        //neo.conectar();
+        _main.getnNodo().conectar();
+        if(_main.getnNodo().Login(jTextField1.getText())){
+            _main.getnNodo().desconectar();
             _main.abra();
             dispose();
             
@@ -175,7 +176,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario No Registrado");
             JOptionPane.showMessageDialog(null, "Cree un Usuario por favor");
         }
-        neo.desconectar();
+        _main.getnNodo().desconectar();
      
        
     }//GEN-LAST:event_jButton2ActionPerformed
