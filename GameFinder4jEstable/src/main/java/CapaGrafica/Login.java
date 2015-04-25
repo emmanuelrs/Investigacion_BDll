@@ -178,7 +178,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario No Registrado");
             JOptionPane.showMessageDialog(null, "Cree un Usuario por favor");
         }
-        //_main.getnNodo().desconectar();
+        
      
        
     }//GEN-LAST:event_jButton2ActionPerformed

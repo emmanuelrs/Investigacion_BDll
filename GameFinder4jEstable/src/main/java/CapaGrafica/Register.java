@@ -223,9 +223,8 @@ public class Register extends javax.swing.JFrame {
      */
     
     public void registrar(){
-        String password = String.valueOf(jPasswordField1.getPassword());
-        Neo4jConnection usuario = new Neo4jConnection();
-        System.out.println("hola");
+       String password = String.valueOf(jPasswordField1.getPassword());
+       Neo4jConnection usuario = new Neo4jConnection();
        usuario.conectar();
        usuario.addGamer(jTextField1.getText(), jTextField2.getText(),jTextField3.getText(), jTextField4.getText(),password);
        usuario.desconectar();
