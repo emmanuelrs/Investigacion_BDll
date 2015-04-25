@@ -1,6 +1,7 @@
 package CapaLogica;
 
 import CapaGrafica.GUI;
+import CapaGrafica.Login;
 import java.util.ArrayList;
 
 /**
@@ -23,18 +24,26 @@ public class Main {
 
 
         Main main = new Main();
+        Login login = new Login(main);
+        login.setVisible(true);
     }
 
     private void init() {
         nNodo = new Neo4jConnection();
-        getnNodo().conectar();
+        
         gui = new GUI(this);
          /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                gui.setVisible(true);
+                gui.setVisible(false);
             }
         });
+    }
+    
+    public void abra(){
+        getnNodo().conectar();
+        gui.setVisible(true);
+        
     }
     
     public ArrayList<String> busquedaXCategoria(String category){
