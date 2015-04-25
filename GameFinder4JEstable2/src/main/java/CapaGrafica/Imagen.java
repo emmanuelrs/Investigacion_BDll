@@ -26,7 +26,7 @@ public class Imagen extends javax.swing.JPanel{
 
     @Override
     public void paint(Graphics g) {
-        ImageIcon Img = new ImageIcon(getClass().getResource("/Images/imagen1.png"));
+        ImageIcon Img = new ImageIcon(getClass().getResource("D:\\gamefinderlogo.png"));
         g.drawImage(Img.getImage(), 0, 0, x, y, null);
     }    
     

@@ -366,7 +366,7 @@ public class GUI extends javax.swing.JFrame {
         this.add(_agregar);
         
         _detalles = new GuiDetalles(this);
-        _detalles.setSize(430, 487);
+        _detalles.setSize(630, 687);
         _detalles.setVisible(false);
         this.add(_detalles);
         
