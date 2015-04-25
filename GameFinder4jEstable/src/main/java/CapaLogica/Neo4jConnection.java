@@ -33,6 +33,7 @@ public final class Neo4jConnection {
 	private Label etiquetaC;
         private Label etiquetaG;
         private boolean loggin;
+        private boolean paslog;
 	// Constructor:
 	public Neo4jConnection() {
 		this.setDirectorio("/home/emmanuel/Desktop/neo4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
@@ -212,11 +213,14 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             }
         }
 	
-        public boolean buscarUsuario(String userName){
+        public boolean buscarUsuario(String userName, String password){
            ArrayList n = getData("match (n:Person) where n.userName = \""+ userName +"\" "
                         + "return n.userName;");
            if(!n.isEmpty()){
-            this.setloggin(true);
+               if(buscarPassword(password)){
+                   this.setloggin(true);  
+               }
+            
             return true;
             
            }
@@ -225,6 +229,18 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             return false;
            }
        } 
+        
+       public boolean buscarPassword(String password){
+           ArrayList a = getData("match (n:Person) where n.Password = \""+ password +"\" "
+                        + "return n.userName;");
+           if(!a.isEmpty()){
+               paslog = true;
+               
+           }else{
+               paslog = false;
+           }
+           return paslog;
+       }
        public ArrayList<String> obtenerInfo(String name){
            return getData("match (n:Game) where n.Name = \""+ name +"\" "
                         + "         return n.Year,n.Category,n.CasaCreadora,n.Review,n.Stars");
