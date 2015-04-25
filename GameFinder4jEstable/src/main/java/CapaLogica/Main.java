@@ -20,27 +20,8 @@ public class Main {
    
     public static void main(String[] args) {
        
-//        Neo4jConnection nNodo = new Neo4jConnection();
-//        nNodo.conectar();
-//        nNodo.addConsole("Nintendo", "2007", "Nintendo");
-//        nNodo.addGame("Mario", "F0", "0", "A0", "R0","4");
-//        nNodo.addGame("Samus", "F1", "1", "A1", "R1","3");
-//        nNodo.addGame("Kirby", "F2", "2", "A2", "R2","4");
-//        nNodo.addGame("Spiderman", "F3", "0", "A3", "R3","2");
-//        nNodo.addGame("Yoshi", "F4", "0", "A4", "R4","5");
-//        nNodo.addGame("Wario", "F5", "0", "A5", "R5", "4");
-//        
-//        nNodo.relacionar("Nintendo", "Mario");
-//        nNodo.relacionar("Nintendo", "Yoshi");
-//        
-//        
-//        ArrayList<String> lista = nNodo.retonarSeguidores("Nintendo");
-//		System.out.println(lista.toString()); 
-//                
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//            
-//        }
+
+
         Main main = new Main();
     }
 
