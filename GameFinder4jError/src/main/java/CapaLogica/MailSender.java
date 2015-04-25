@@ -61,8 +61,5 @@ public class MailSender {
             throw new RuntimeException(e);
         }
     }
-    public static void main(String[] args) {
-        MailSender ms = new MailSender();
-        ms.enviaCorreo("Blkfx", "ldflores92@gmail.com");
-    }
+    
 }
