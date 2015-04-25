@@ -174,6 +174,7 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             this.setTx(this.getBase().beginTx());
             this.existeUser(userName);
             //this.existePass(password);
+            System.out.println(getloggin());
             if(getloggin()){
                 System.out.println("Inicio");
                 this.getTx().success();
@@ -192,6 +193,7 @@ public void addGame(String gameName, String gameYear, String gameCategory,
                         System.out.println(getloggin());}
 		else {
                         this.setloggin(false);
+                        System.out.println(getloggin());
                 }
                 tx.success();
                 tx.finish();
@@ -210,7 +212,19 @@ public void addGame(String gameName, String gameYear, String gameCategory,
             }
         }
 	
-
+        public boolean buscarUsuario(String userName){
+           ArrayList n = getData("match (n:Person) where n.userName = \""+ userName +"\" "
+                        + "return n.userName;");
+           if(!n.isEmpty()){
+            this.setloggin(true);
+            return true;
+            
+           }
+           else{
+            this.setloggin(false);
+            return false;
+           }
+       } 
        public ArrayList<String> obtenerInfo(String name){
            return getData("match (n:Game) where n.Name = \""+ name +"\" "
                         + "         return n.Year,n.Category,n.CasaCreadora,n.Review,n.Stars");

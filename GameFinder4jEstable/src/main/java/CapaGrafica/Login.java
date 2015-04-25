@@ -167,7 +167,9 @@ public class Login extends javax.swing.JFrame {
         //Neo4jConnection neo = new Neo4jConnection();
         //neo.conectar();
         _main.getnNodo().conectar();
-        if(_main.getnNodo().Login(jTextField1.getText())){
+        _main.getnNodo().buscarUsuario(jTextField1.getText());
+        
+       if(_main.getnNodo().getloggin()){
             _main.getnNodo().desconectar();
             _main.abra();
             dispose();
