@@ -37,7 +37,7 @@ public final class Neo4jConnection {
         private boolean verificaU;
 	// Constructor:
 	public Neo4jConnection() {
-		this.setDirectorio("/home/emmanuel/Desktop/neo4j/data/graph.db"); //Cambiar la dirección por la de cada uno.
+		this.setDirectorio("C:\\Users\\Jose\\Documents\\Neo4j\\default.graphdb"); //Cambiar la dirección por la de cada uno.
 		this.setNodo1(null);
 		this.setNodo2(null);
 		this.setNodo3(null);
