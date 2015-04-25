@@ -95,7 +95,7 @@ public final class Neo4jConnection {
     }
 
 public void addGame(String gameName, String gameYear, String gameCategory,
-            String casaCreadora, String gameReview, String stars) {
+            String casaCreadora, String gameReview, String stars,String pImagePath) {
         this.setTx(this.getBase().beginTx());
 
         try {
@@ -110,6 +110,7 @@ public void addGame(String gameName, String gameYear, String gameCategory,
                     this.getNodo1().setProperty("CasaCreadora", casaCreadora);
                     this.getNodo1().setProperty("Review", gameReview);
                     this.getNodo1().setProperty("Stars", stars);
+                    this.getNodo1().setProperty("ImgPath",pImagePath);
                     this.getTx().success();
                     JOptionPane.showMessageDialog(null, "Juego Agregado");
                 }else{

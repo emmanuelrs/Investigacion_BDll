@@ -8,6 +8,7 @@ package CapaGrafica;
 import CapaGrafica.GUI;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 public class GuiAgregar extends javax.swing.JPanel {
 
     GUI frame;
+    String defaultPathImage = "D:\\gamefinderlogo.png";
     /**
      * Creates new form GuiAgregar
      * @param mainFrame
@@ -23,7 +25,7 @@ public class GuiAgregar extends javax.swing.JPanel {
     public GuiAgregar(GUI mainFrame) {
         this.frame = mainFrame;
         initComponents();
-        
+        jTextField1.setText(defaultPathImage);
         this.layerAddGame.setVisible(false);
         this.layerAddConsole.setVisible(true);
     }
@@ -469,8 +471,9 @@ public class GuiAgregar extends javax.swing.JPanel {
         String casa = this.txtEmp.getText();
         String descrip = this.txtDescrip.getText();
         String stars = this.txtRate.getText();
-        if(!"".equals(nombre) & !"".equals(anio) & !"".equals(cat) & !"".equals(casa) & !"".equals(descrip) &!"".equals(stars)){
-            frame.getMain().getnNodo().addGame(nombre, anio, cat, casa, descrip, stars);
+        String imagePath = this.jTextField1.getText();
+        if(!"".equals(nombre) & !"".equals(anio) & !"".equals(cat) & !"".equals(casa) & !"".equals(descrip) &!"".equals(stars)&!"".equals(imagePath)){
+            frame.getMain().getnNodo().addGame(nombre, anio, cat, casa, descrip, stars, imagePath);
             JOptionPane.showMessageDialog(null, "Juego Registrado");
         }else{
             JOptionPane.showMessageDialog(null, "Campos Vacíos");
@@ -543,13 +546,15 @@ public class GuiAgregar extends javax.swing.JPanel {
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        chooser.setFileFilter(filter);
         int option = chooser.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
           jTextField1.setText(((chooser.getSelectedFile()!=null)?
-                            chooser.getSelectedFile().getAbsolutePath():"D:\\gamefinderlogo.png"));
+                            chooser.getSelectedFile().getAbsolutePath():defaultPathImage));
         }
         else {
-          jTextField1.setText("D:\\gamefinderlogo.png");
+          jTextField1.setText(defaultPathImage);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
