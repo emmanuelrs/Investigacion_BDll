@@ -219,6 +219,8 @@ public void addGame(String gameName, String gameYear, String gameCategory,
            if(!n.isEmpty()){
                if(buscarPassword(password)){
                    this.setloggin(true);  
+               }else{
+                   this.setloggin(false);
                }
             
             return true;

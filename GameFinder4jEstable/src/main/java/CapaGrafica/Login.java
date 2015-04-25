@@ -168,6 +168,7 @@ public class Login extends javax.swing.JFrame {
         //neo.conectar();
         _main.getnNodo().conectar();
         _main.getnNodo().buscarUsuario(jTextField1.getText(), password);
+        _main.getnNodo().desconectar();
         
        if(_main.getnNodo().getloggin()){
             _main.getnNodo().desconectar();
