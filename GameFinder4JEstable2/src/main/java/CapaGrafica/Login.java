@@ -7,6 +7,7 @@ package CapaGrafica;
 
 import CapaLogica.Main;
 import CapaLogica.Neo4jConnection;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,8 +23,8 @@ public class Login extends javax.swing.JFrame {
      */
     Main _main;
     ImageIcon imagen;
-    String imagePath = System.getProperty("user.dir")+"\\Recursos\\gamefinderlogo.png";
-    
+    String imagePath = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
+   
     public Login(Main pMain) {
         imagen = new ImageIcon(imagePath);
         initComponents();

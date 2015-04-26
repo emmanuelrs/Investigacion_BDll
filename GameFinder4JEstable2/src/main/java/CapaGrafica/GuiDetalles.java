@@ -22,7 +22,7 @@ public class GuiDetalles extends javax.swing.JPanel {
     GUI frame;
     ImageIcon imagen;
     //String imagePath = "D:\\gamefinderlogo.png";
-    String imagePath = System.getProperty("user.dir")+"\\Recursos\\gamefinderlogo.png";
+    String imagePath = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
     String defaultImagePath = imagePath;
     /**
      * Creates new form GuiDetalles

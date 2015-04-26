@@ -6,6 +6,7 @@
 package CapaGrafica;
 
 import CapaGrafica.GUI;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -17,7 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class GuiAgregar extends javax.swing.JPanel {
 
     GUI frame;
-    String defaultPathImage = System.getProperty("user.dir")+"\\Recursos\\gamefinderlogo.png";
+    String defaultPathImage = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
     /**
      * Creates new form GuiAgregar
      * @param mainFrame
