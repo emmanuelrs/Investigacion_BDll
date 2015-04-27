@@ -6,7 +6,12 @@
 package CapaGrafica;
 
 import CapaGrafica.GUI;
+import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -15,13 +20,21 @@ import java.util.ArrayList;
 public class GuiDetalles extends javax.swing.JPanel {
 
     GUI frame;
+    ImageIcon imagen;
+    //String imagePath = "D:\\gamefinderlogo.png";
+    String imagePath = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
+    String defaultImagePath = imagePath;
     /**
      * Creates new form GuiDetalles
      * @param framePrincipal
      */
     public GuiDetalles(GUI framePrincipal) {
         frame = framePrincipal;
+        imagen = new ImageIcon(imagePath);
+       // JLabel etiqueta = new JLabel(imagen);
+       
         initComponents();
+       // this.add(etiqueta);
         
         this.progRate.setValue(80);
         this.progRate.setString("4");
@@ -44,6 +57,7 @@ public class GuiDetalles extends javax.swing.JPanel {
         lblCat = new javax.swing.JLabel();
         lblRate = new javax.swing.JLabel();
         progRate = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
 
         jLayeredPane1.setBackground(new java.awt.Color(51, 51, 51));
         jLayeredPane1.setOpaque(true);
@@ -80,48 +94,53 @@ public class GuiDetalles extends javax.swing.JPanel {
         progRate.setString("");
         progRate.setStringPainted(true);
 
+        jLabel1.setText("jLabel1");
+        jLabel1 = new JLabel(imagen);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(lblCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(lblRate, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 18, Short.MAX_VALUE)))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(166, 166, 166))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCat, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRate, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(progRate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 8, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -129,6 +148,7 @@ public class GuiDetalles extends javax.swing.JPanel {
         jLayeredPane1.setLayer(lblCat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblRate, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(progRate, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,10 +161,10 @@ public class GuiDetalles extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,6 +176,7 @@ public class GuiDetalles extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInicio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCat;
@@ -164,12 +185,34 @@ public class GuiDetalles extends javax.swing.JPanel {
     private javax.swing.JProgressBar progRate;
     private javax.swing.JTextArea txtDescrip;
     // End of variables declaration//GEN-END:variables
-
+    
     public void mostrarInfo(ArrayList<String> info, String Name) {
         this.lblNombre.setText(Name);
         this.lblCat.setText(info.get(1));
+        this.imagePath = info.get(3);
+        File fichero = new File(imagePath);
+     
+
+     if (fichero.exists())
+       {
+           System.out.println("El fichero " + imagePath + " existe");
+           imagen = new ImageIcon(imagePath);
+           Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+           jLabel1.setIcon(icono);
+           jLabel1.repaint();
+           this.repaint();
+    }
+     else{
+         System.out.println("el fichero no existe");
+     }
+       
+
+        
+        
+        
+        
         this.txtDescrip.setText("Año: " + info.get(0) + "\n" +
-                                "Casa Creadora: " + info.get(2)+ "\n" + info.get(3));
+                                "Casa Creadora: " + info.get(2)+ "\n" + info.get(4));
         
         switch(info.get(4)){
             case "0":
@@ -201,8 +244,29 @@ public class GuiDetalles extends javax.swing.JPanel {
     
      public void mostrarInfoConsolas(ArrayList<String> info, String Name) {
         this.lblNombre.setText(Name);
-        this.lblCat.setText("Año: " + info.get(1));
-        this.txtDescrip.setText("Empresa: " + info.get(0));
+        this.imagePath = info.get(0);
+        
+        File fichero = new File(imagePath);
+     
+
+     if (fichero.exists())
+       {
+        
+        //System.out.println("El fichero " + imagePath + " existe");
+        imagen = new ImageIcon(imagePath);
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        jLabel1.setIcon(icono);
+        jLabel1.repaint();
+        this.repaint();
+        
+      }
+     else{
+     
+   //      System.out.println("el fichero no existe");
+     }
+        
+        this.lblCat.setText("Año: " + info.get(2));
+        this.txtDescrip.setText("Empresa: " + info.get(1));
         
     }
 }

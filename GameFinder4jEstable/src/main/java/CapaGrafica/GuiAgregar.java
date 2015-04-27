@@ -6,7 +6,10 @@
 package CapaGrafica;
 
 import CapaGrafica.GUI;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -15,6 +18,7 @@ import javax.swing.JOptionPane;
 public class GuiAgregar extends javax.swing.JPanel {
 
     GUI frame;
+    String defaultPathImage = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
     /**
      * Creates new form GuiAgregar
      * @param mainFrame
@@ -22,7 +26,8 @@ public class GuiAgregar extends javax.swing.JPanel {
     public GuiAgregar(GUI mainFrame) {
         this.frame = mainFrame;
         initComponents();
-        
+        jTextField1.setText(defaultPathImage);
+        jTextField2.setText(defaultPathImage);
         this.layerAddGame.setVisible(false);
         this.layerAddConsole.setVisible(true);
     }
@@ -60,6 +65,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         txtEmp = new javax.swing.JTextField();
         lblCat = new javax.swing.JLabel();
         txtCat = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         layerAddConsole = new javax.swing.JLayeredPane();
         txtAnioConsole = new javax.swing.JTextField();
         lblDescripConsole = new javax.swing.JLabel();
@@ -69,6 +76,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         btnAddConsole1 = new javax.swing.JButton();
         lblNombreConsole1 = new javax.swing.JLabel();
         txtEmpConsole1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
 
         layerAddGame.setBackground(new java.awt.Color(51, 51, 51));
         layerAddGame.setOpaque(true);
@@ -166,50 +175,64 @@ public class GuiAgregar extends javax.swing.JPanel {
             }
         });
 
+        jTextField1.setEditable(false);
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Imagen");
+        jButton1.setActionCommand("Imagen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layerAddGameLayout = new javax.swing.GroupLayout(layerAddGame);
         layerAddGame.setLayout(layerAddGameLayout);
         layerAddGameLayout.setHorizontalGroup(
             layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layerAddGameLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layerAddGameLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layerAddGameLayout.createSequentialGroup()
-                                .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblDescrip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNombre1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerAddGameLayout.createSequentialGroup()
-                                            .addGap(190, 190, 190)
-                                            .addComponent(lblRate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtRate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerAddGameLayout.createSequentialGroup()
-                                            .addComponent(lblCat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtCat))
-                                        .addGroup(layerAddGameLayout.createSequentialGroup()
-                                            .addGap(8, 8, 8)
-                                            .addComponent(btnAddGame, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 22, Short.MAX_VALUE))))
-                    .addGroup(layerAddGameLayout.createSequentialGroup()
-                        .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layerAddGameLayout.createSequentialGroup()
-                                .addComponent(lblAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDescrip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerAddGameLayout.createSequentialGroup()
+                                .addComponent(lblCat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCat))
                             .addGroup(layerAddGameLayout.createSequentialGroup()
-                                .addComponent(lblEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(8, 8, 8)
+                                .addComponent(btnAddGame, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerAddGameLayout.createSequentialGroup()
+                                .addComponent(lblAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblRate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtRate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerAddGameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layerAddGameLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1))
+                    .addGroup(layerAddGameLayout.createSequentialGroup()
+                        .addComponent(lblEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48))
         );
         layerAddGameLayout.setVerticalGroup(
             layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +247,7 @@ public class GuiAgregar extends javax.swing.JPanel {
                     .addGroup(layerAddGameLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(txtCat)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,11 +257,15 @@ public class GuiAgregar extends javax.swing.JPanel {
                     .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
                 .addGroup(layerAddGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddGame, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -258,6 +285,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         layerAddGame.setLayer(txtEmp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddGame.setLayer(lblCat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddGame.setLayer(txtCat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddGame.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddGame.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         layerAddConsole.setBackground(new java.awt.Color(51, 51, 51));
         layerAddConsole.setOpaque(true);
@@ -332,6 +361,18 @@ public class GuiAgregar extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Imagen");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setEditable(false);
+
         javax.swing.GroupLayout layerAddConsoleLayout = new javax.swing.GroupLayout(layerAddConsole);
         layerAddConsole.setLayout(layerAddConsoleLayout);
         layerAddConsoleLayout.setHorizontalGroup(
@@ -353,9 +394,15 @@ public class GuiAgregar extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layerAddConsoleLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInicioConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layerAddConsoleLayout.createSequentialGroup()
+                                .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInicioConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layerAddConsoleLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2)))))
                 .addContainerGap())
             .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerAddConsoleLayout.createSequentialGroup()
@@ -376,7 +423,11 @@ public class GuiAgregar extends javax.swing.JPanel {
                 .addComponent(lblEmpresaConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmpConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layerAddConsoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddConsole1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInicioConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -395,6 +446,8 @@ public class GuiAgregar extends javax.swing.JPanel {
         layerAddConsole.setLayer(btnAddConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddConsole.setLayer(lblNombreConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layerAddConsole.setLayer(txtEmpConsole1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddConsole.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerAddConsole.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -410,10 +463,10 @@ public class GuiAgregar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(layerAddGame, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                .addComponent(layerAddGame, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(layerAddConsole, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
+                .addComponent(layerAddConsole, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -446,8 +499,9 @@ public class GuiAgregar extends javax.swing.JPanel {
         String casa = this.txtEmp.getText();
         String descrip = this.txtDescrip.getText();
         String stars = this.txtRate.getText();
-        if(!"".equals(nombre) & !"".equals(anio) & !"".equals(cat) & !"".equals(casa) & !"".equals(descrip) &!"".equals(stars)){
-            frame.getMain().getnNodo().addGame(nombre, anio, cat, casa, descrip, stars);
+        String imagePath = this.jTextField1.getText();
+        if(!"".equals(nombre) & !"".equals(anio) & !"".equals(cat) & !"".equals(casa) & !"".equals(descrip) &!"".equals(stars)&!"".equals(imagePath)){
+            frame.getMain().getnNodo().addGame(nombre, anio, cat, casa, descrip, stars, imagePath);
             JOptionPane.showMessageDialog(null, "Juego Registrado");
         }else{
             JOptionPane.showMessageDialog(null, "Campos Vacíos");
@@ -468,8 +522,9 @@ public class GuiAgregar extends javax.swing.JPanel {
         String nombre = this.txtNombreConsole1.getText();
         String anio = this.txtAnioConsole.getText();
         String casa = this.txtEmpConsole1.getText();
+        String imagePath = this.jTextField2.getText();
         if(!"".equals(nombre) & !"".equals(anio) & !"".equals(casa)){
-            frame.getMain().getnNodo().addConsole(nombre, anio, casa);
+            frame.getMain().getnNodo().addConsole(nombre, anio, casa, imagePath);
             JOptionPane.showMessageDialog(null, "Consola Registrada");
         }else{
             JOptionPane.showMessageDialog(null, "Campos Vacíos");
@@ -516,13 +571,49 @@ public class GuiAgregar extends javax.swing.JPanel {
         txtEmpConsole1.setText("");
     }//GEN-LAST:event_txtEmpConsole1MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        chooser.setFileFilter(filter);
+        int option = chooser.showOpenDialog(this);
+        if (option == JFileChooser.APPROVE_OPTION) {
+          jTextField1.setText(((chooser.getSelectedFile()!=null)?
+                            chooser.getSelectedFile().getAbsolutePath():defaultPathImage));
+        }
+        else {
+          jTextField1.setText(defaultPathImage);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        chooser.setFileFilter(filter);
+        int option = chooser.showOpenDialog(this);
+        if (option == JFileChooser.APPROVE_OPTION) {
+          jTextField2.setText(((chooser.getSelectedFile()!=null)?
+                            chooser.getSelectedFile().getAbsolutePath():defaultPathImage));
+        }
+        else {
+          jTextField2.setText(defaultPathImage);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddConsole1;
     private javax.swing.JButton btnAddGame;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnInicioConsole;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLayeredPane layerAddConsole;
     private javax.swing.JLayeredPane layerAddGame;
     private javax.swing.JLabel lblAnio;

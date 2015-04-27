@@ -361,12 +361,13 @@ public class GUI extends javax.swing.JFrame {
 
     private void init(){
         _agregar = new GuiAgregar(this);
-        _agregar.setSize(370, 405);
+        _agregar.setSize(470, 505);
         _agregar.setVisible(false);
         this.add(_agregar);
         
         _detalles = new GuiDetalles(this);
-        _detalles.setSize(430, 487);
+       // _detalles.setSize(530, 587);
+        _detalles.setSize(590, 657);
         _detalles.setVisible(false);
         this.add(_detalles);
         

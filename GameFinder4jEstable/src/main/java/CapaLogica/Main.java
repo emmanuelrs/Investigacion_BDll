@@ -2,6 +2,7 @@ package CapaLogica;
 
 import CapaGrafica.GUI;
 import CapaGrafica.Login;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -20,9 +21,8 @@ public class Main {
     
    
     public static void main(String[] args) {
-       
-
-
+      //System.out.println (System.getProperty("user.dir")+"/Recursos/gamefinderlogo.png");
+      //System.out.println(File.separator);
         Main main = new Main();
         Login login = new Login(main);
         login.setVisible(true);
