@@ -11,7 +11,10 @@ import org.neo4j.graphdb.Node;
  *
  * @author Kenneth
  */
+
 public class GUI extends javax.swing.JFrame {
+    
+    // Todos los atributos necesarios para la interfaz gráfica principal.
 
     private GuiDetalles _detalles;
     private GuiAgregar _agregar;
@@ -19,19 +22,19 @@ public class GUI extends javax.swing.JFrame {
     private final Main main;
     private boolean type;
     private ArrayList<String> array;
-    
     public final int _WIDTH;
     public final int _HEIGHT;
     
 public GUI(Main pMain) {
+    
+    // Constructor
+    
     main = pMain;
     init();
     initComponents();
     this._WIDTH = this.getWidth();
     this._HEIGHT = this.getHeight();
 }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -362,7 +365,9 @@ private void init(){
     _relaciones.setVisible(false);
     this.add(_relaciones);
 }
-    
+    // Todos los métodos necesarios para la funcionalidad de la interfaz
+    // gráfica.
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -392,6 +397,9 @@ private void init(){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        // Botón que muestra los detalles tanto de las consolas como 
+        // el de los juegos.
         
         this.infoLayer.setVisible(false);
         _detalles.setVisible(true);
@@ -444,6 +452,9 @@ private void init(){
 
     private void btnXCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXCatActionPerformed
         // TODO add your handling code here:
+        
+        // Botón que genera las búsquedas por categoría.
+        
         DefaultListModel listModel = new DefaultListModel();
         this.type = false;
         array = getMain().busquedaXCategoria(txtBusqueda.getText());
@@ -469,6 +480,9 @@ private void init(){
 
     private void btnXAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXAnioActionPerformed
         // TODO add your handling code here:
+        
+        // Este botón ejecuta la búsqueda de juegos por año.
+        
         this.type = false;
         DefaultListModel listModel = new DefaultListModel();
         array = getMain().busquedaXAnio(txtBusqueda.getText());
@@ -481,6 +495,9 @@ private void init(){
 
     private void menuRelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelacionesActionPerformed
         // TODO add your handling code here:
+        
+        // Muestra la ventana para crear las relaciones entre nodos.
+        
         this.infoLayer.setVisible(false);
         _relaciones.setVisible(true);
         this.setSize(_relaciones.getWidth() +10, _relaciones.getHeight() + 70);
