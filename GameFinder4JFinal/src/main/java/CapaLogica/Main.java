@@ -11,20 +11,32 @@ import java.util.ArrayList;
 
 public class Main {
 
+    // Variables locales
+    
     private GUI gui;
     private Neo4jConnection nNodo;
     
 public Main(){
+    
+    // Llama al método init cuando es convocado.
+    
     init();
 }
     
 public static void main(String[] args) {
+    
+    // crea un objeto main el cual se le pasa como parámetro al objeto
+    // de login que se muestra cuando el programa se ejecuta.
+    
     Main main = new Main();
     Login login = new Login(main);
     login.setVisible(true);
 }
 
 private void init() {
+    
+    // El método init crea los objetos y la conexión de la ventana principal
+    // y neo4j
     
     nNodo = new Neo4jConnection();
     gui = new GUI(this);
@@ -37,6 +49,10 @@ private void init() {
 }
     
 public void abra(){
+    
+    // Este método le settea true a la ventana principal
+    // para que sea visible
+    
     getnNodo().conectar();
     gui.setVisible(true);
 
