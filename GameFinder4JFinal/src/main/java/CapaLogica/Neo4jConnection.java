@@ -45,7 +45,7 @@ public Neo4jConnection(){
    que al inicio se muestran en nulo, conforme la aplicación se va ejecutando
    estos valores se modifican.
  */
-    this.setDirectorio("/Users/emmanuelrosales/Desktop/neo4j/data/graph.db"); 
+    this.setDirectorio("/Users/Luis Flores/Desktop/neo4j/data/graph.db"); 
     this.setNodo1(null);
     this.setNodo2(null);
     this.setNodo3(null);
