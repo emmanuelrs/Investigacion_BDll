@@ -13,9 +13,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class GuiAgregar extends javax.swing.JPanel {
 
     GUI frame;
+    // Obtiene el path ya sea en Linux, Windows o OS para tener la imagen
     String defaultPathImage = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
    
 public GuiAgregar(GUI mainFrame) {
+    
+    // Constructor
+    
     this.frame = mainFrame;
     initComponents();
     jTextField1.setText(defaultPathImage);
@@ -483,7 +487,10 @@ public void mostrar(int e){
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnAddGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGameActionPerformed
-        // TODO add your handling code here:
+        
+        
+        // Este botón agrega los juegos a la base de datos.
+        
         String nombre = this.txtNombre1.getText();
         String anio = this.txtAnio.getText();
         String cat = this.txtCat.getText();
@@ -509,7 +516,10 @@ public void mostrar(int e){
     }//GEN-LAST:event_btnInicioConsoleActionPerformed
 
     private void btnAddConsole1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddConsole1ActionPerformed
-        // TODO add your handling code here:
+        
+        // Botón que agrega las consolas
+        
+        
         String nombre = this.txtNombreConsole1.getText();
         String anio = this.txtAnioConsole.getText();
         String casa = this.txtEmpConsole1.getText();
@@ -563,7 +573,9 @@ public void mostrar(int e){
     }//GEN-LAST:event_txtEmpConsole1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        //Este método carga las imágenes de las consolas y juegos.
+
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
@@ -579,7 +591,9 @@ public void mostrar(int e){
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       
+        //Carga las imágenes 
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");

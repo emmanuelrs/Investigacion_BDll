@@ -17,18 +17,15 @@ public class GuiDetalles extends javax.swing.JPanel {
 
     GUI frame;
     ImageIcon imagen;
-    //String imagePath = "D:\\gamefinderlogo.png";
     String imagePath = System.getProperty("user.dir")+File.separator+"Recursos"+File.separator+"gamefinderlogo.png";
     String defaultImagePath = imagePath;
 
     public GuiDetalles(GUI framePrincipal) {
         frame = framePrincipal;
         imagen = new ImageIcon(imagePath);
-       // JLabel etiqueta = new JLabel(imagen);
+   
        
         initComponents();
-       // this.add(etiqueta);
-        
         this.progRate.setValue(80);
         this.progRate.setString("4");
     }
@@ -191,7 +188,6 @@ public void mostrarInfo(ArrayList<String> info, String Name) {
        this.repaint();
 }
  else{
-     System.out.println("el fichero no existe");
  }
     this.txtDescrip.setText("Año: " + info.get(0) + "\n" +
                             "Casa Creadora: " + info.get(2)+ "\n" + info.get(4));
@@ -234,7 +230,6 @@ public void mostrarInfoConsolas(ArrayList<String> info, String Name) {
  if (fichero.exists())
    {
 
-    //System.out.println("El fichero " + imagePath + " existe");
     imagen = new ImageIcon(imagePath);
     Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
     jLabel1.setIcon(icono);
@@ -242,13 +237,8 @@ public void mostrarInfoConsolas(ArrayList<String> info, String Name) {
     this.repaint();
 
   }
- else{
-
-//      System.out.println("el fichero no existe");
- }
-
+ 
     this.lblCat.setText("Año: " + info.get(2));
     this.txtDescrip.setText("Empresa: " + info.get(1));
 
-}
-}
+}}
